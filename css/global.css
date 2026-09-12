@@ -1,0 +1,127 @@
+/* ========================================
+   OpenNote — Global Design System
+   ======================================== */
+
+:root {
+    /* Backgrounds */
+    --bg-primary: #080B14;
+    --bg-secondary: #111827;
+    --bg-tertiary: #172033;
+
+    /* Brand */
+    --primary: #6366F1;
+    --secondary: #8B5CF6;
+    --accent: #22D3EE;
+
+    /* Text */
+    --text-primary: #F8FAFC;
+    --text-secondary: #CBD5E1;
+    --text-muted: #94A3B8;
+
+    /* States */
+    --success: #34D399;
+    --error: #F87171;
+    --warning: #FBBF24;
+
+    /* Borders & Effects */
+    --border: rgba(255, 255, 255, 0.10);
+    --glass: rgba(17, 24, 39, 0.65);
+    --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+
+    /* Radius */
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+    --radius-xl: 30px;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+}
+
+/* Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: var(--bg-primary);
+    color: var(--text-primary);
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+input,
+textarea {
+    outline: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Utility */
+
+.hidden {
+    display: none !important;
+}
+
+.no-select {
+    user-select: none;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bg-tertiary);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* Selection */
+
+::selection {
+    background: rgba(99, 102, 241, 0.35);
+    color: var(--text-primary);
+}

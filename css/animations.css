@@ -1,0 +1,148 @@
+/* OpenNote — Animations */
+
+/* ─────────────────────────────────────────────
+   PAGE ANIMATIONS
+───────────────────────────────────────────── */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* ─────────────────────────────────────────────
+   BACKGROUND / GLOW
+───────────────────────────────────────────── */
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulseGlow {
+    0%,
+    100% {
+        opacity: 0.45;
+    }
+
+    50% {
+        opacity: 0.75;
+    }
+}
+
+
+/* ─────────────────────────────────────────────
+   LOADING
+───────────────────────────────────────────── */
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ─────────────────────────────────────────────
+   AUTHENTICATION
+───────────────────────────────────────────── */
+
+.auth-card {
+    animation: scaleIn 0.45s ease-out;
+}
+
+.auth-message {
+    animation: fadeIn 0.25s ease;
+}
+
+
+/* ─────────────────────────────────────────────
+   DASHBOARD
+───────────────────────────────────────────── */
+
+.dashboard {
+    animation: fadeIn 0.4s ease;
+}
+
+.note-item {
+    animation: fadeInUp 0.3s ease;
+}
+
+.sidebar-folder {
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* ─────────────────────────────────────────────
+   BUTTONS
+───────────────────────────────────────────── */
+
+button {
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease,
+        background-color 0.2s ease;
+}
+
+button:not(:disabled):active {
+    transform: scale(0.98);
+}
+
+
+/* ─────────────────────────────────────────────
+   REDUCED MOTION
+───────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

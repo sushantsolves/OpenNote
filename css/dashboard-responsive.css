@@ -1,0 +1,146 @@
+/* OpenNote — Dashboard Responsive Enhancements */
+
+@media (max-width: 1100px) {
+    .dashboard {
+        grid-template-columns: 220px 1fr;
+    }
+
+    .dashboard-content {
+        padding: 24px;
+    }
+
+    .notes-layout {
+        grid-template-columns: 240px minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 800px) {
+    .dashboard {
+        grid-template-columns: 72px 1fr;
+    }
+
+    .dashboard-sidebar {
+        padding: 18px 10px;
+    }
+
+    .dashboard-brand {
+        justify-content: center;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .dashboard-brand-name {
+        display: none;
+    }
+
+    .sidebar-section-title {
+        display: none;
+    }
+
+    .sidebar-item {
+        justify-content: center;
+        padding: 12px;
+    }
+
+    .sidebar-item span:not(.sidebar-icon) {
+        display: none;
+    }
+
+    .sidebar-folder {
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .sidebar-folder-name {
+        display: none;
+    }
+
+    .sidebar-add-folder {
+        justify-content: center;
+    }
+
+    .sidebar-add-folder span:last-child {
+        display: none;
+    }
+
+    .user-info {
+        display: none;
+    }
+
+    .user-card {
+        justify-content: center;
+    }
+
+    .dashboard-header {
+        padding: 0 20px;
+    }
+
+    .dashboard-heading h1 {
+        font-size: 21px;
+    }
+
+    .notes-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .notes-panel {
+        max-height: 240px;
+    }
+
+    .note-editor {
+        min-height: 500px;
+    }
+}
+
+@media (max-width: 600px) {
+    .dashboard {
+        display: block;
+    }
+
+    .dashboard-sidebar {
+        display: none;
+    }
+
+    .dashboard-header {
+        height: auto;
+        min-height: 70px;
+        padding: 14px 16px;
+    }
+
+    .dashboard-heading p {
+        display: none;
+    }
+
+    .dashboard-actions {
+        gap: 6px;
+    }
+
+    .dashboard-button {
+        padding: 9px 11px;
+        font-size: 12px;
+    }
+
+    .dashboard-content {
+        padding: 16px;
+    }
+
+    .dashboard-toolbar {
+        margin-bottom: 16px;
+    }
+
+    .notes-layout {
+        gap: 14px;
+    }
+
+    .note-editor-body {
+        padding: 22px 18px;
+    }
+
+    .note-title-input {
+        font-size: 22px;
+    }
+
+    .note-content-input {
+        font-size: 14px;
+    }
+}

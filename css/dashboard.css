@@ -1,0 +1,931 @@
+/* =========================================
+   OpenNote — Dashboard
+   ========================================= */
+
+#dashboard {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    background:
+        radial-gradient(
+            circle at 80% 10%,
+            rgba(99, 102, 241, 0.08),
+            transparent 30%
+        ),
+        #080B14;
+    color: #F8FAFC;
+}
+
+
+/* =========================================
+   DASHBOARD LAYOUT
+   ========================================= */
+
+.dashboard-shell {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+}
+
+
+/* =========================================
+   SIDEBAR
+   ========================================= */
+
+.dashboard-sidebar {
+    width: 250px;
+    min-width: 250px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    background: rgba(17, 24, 39, 0.88);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    z-index: 20;
+}
+
+
+.sidebar-brand {
+    height: 78px;
+    padding: 0 22px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+
+.sidebar-brand-icon {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6366F1,
+            #8B5CF6
+        );
+
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 25px rgba(99, 102, 241, 0.25);
+}
+
+
+.sidebar-brand-name {
+    font-size: 18px;
+    font-weight: 750;
+    letter-spacing: -0.02em;
+}
+
+
+.sidebar-section {
+    padding: 22px 14px 10px;
+}
+
+
+.sidebar-section-title {
+    padding: 0 10px;
+    margin-bottom: 10px;
+
+    color: #64748B;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   FOLDER LIST
+   ========================================= */
+
+#sidebar-folder-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.sidebar-folder {
+    width: 100%;
+    min-height: 42px;
+
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    padding: 9px 11px;
+
+    border: 1px solid transparent;
+    border-radius: 10px;
+
+    background: transparent;
+    color: #94A3B8;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.sidebar-folder:hover {
+    background: rgba(255, 255, 255, 0.045);
+    color: #F8FAFC;
+}
+
+
+.sidebar-folder.active {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(99, 102, 241, 0.16),
+            rgba(139, 92, 246, 0.08)
+        );
+
+    border-color:
+        rgba(99, 102, 241, 0.22);
+
+    color: #FFFFFF;
+}
+
+
+.sidebar-folder-icon {
+    width: 22px;
+    flex-shrink: 0;
+
+    font-size: 15px;
+    text-align: center;
+}
+
+
+.sidebar-folder-name {
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    font-size: 14px;
+    font-weight: 550;
+}
+
+
+/* =========================================
+   ADD FOLDER
+   ========================================= */
+
+#add-folder-button {
+    width: 100%;
+    margin-top: 10px;
+
+    min-height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    border: 1px dashed rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+
+    background: transparent;
+    color: #64748B;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+#add-folder-button:hover {
+    color: #C7D2FE;
+
+    background:
+        rgba(99, 102, 241, 0.07);
+
+    border-color:
+        rgba(99, 102, 241, 0.3);
+}
+
+
+/* =========================================
+   SIDEBAR USER AREA
+   ========================================= */
+
+.sidebar-user {
+    margin-top: auto;
+    padding: 14px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+
+.sidebar-user-info {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 10px;
+}
+
+
+.sidebar-user-avatar {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(99, 102, 241, 0.3),
+            rgba(34, 211, 238, 0.15)
+        );
+
+    color: #C7D2FE;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+#user-email {
+    min-width: 0;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    color: #94A3B8;
+    font-size: 12px;
+}
+
+
+#logout-button {
+    width: 100%;
+    min-height: 38px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 9px;
+
+    background: rgba(255, 255, 255, 0.025);
+    color: #94A3B8;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+#logout-button:hover {
+    color: #F87171;
+
+    background:
+        rgba(248, 113, 113, 0.07);
+
+    border-color:
+        rgba(248, 113, 113, 0.2);
+}
+
+
+/* =========================================
+   MAIN AREA
+   ========================================= */
+
+.dashboard-main {
+    min-width: 0;
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================
+   TOP HEADER
+   ========================================= */
+
+.dashboard-header {
+    min-height: 78px;
+
+    padding: 0 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+    background:
+        rgba(8, 11, 20, 0.72);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 10;
+}
+
+
+.dashboard-header-info {
+    min-width: 0;
+}
+
+
+.dashboard-header h1 {
+    margin: 0;
+
+    font-size: 22px;
+    font-weight: 750;
+    letter-spacing: -0.025em;
+}
+
+
+.dashboard-header p {
+    margin: 4px 0 0;
+
+    color: #64748B;
+    font-size: 13px;
+}
+
+
+.dashboard-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+
+/* =========================================
+   DASHBOARD BUTTONS
+   ========================================= */
+
+.dashboard-button {
+    min-height: 40px;
+
+    padding: 0 15px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+    font-weight: 650;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.dashboard-button:hover {
+    transform: translateY(-1px);
+}
+
+
+.dashboard-button.secondary {
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    color: #CBD5E1;
+}
+
+
+.dashboard-button.secondary:hover {
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    border-color:
+        rgba(255, 255, 255, 0.14);
+}
+
+
+.dashboard-button.primary {
+    border: 1px solid transparent;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6366F1,
+            #8B5CF6
+        );
+
+    color: #FFFFFF;
+
+    box-shadow:
+        0 8px 25px rgba(99, 102, 241, 0.2);
+}
+
+
+.dashboard-button.primary:hover {
+    box-shadow:
+        0 12px 32px rgba(99, 102, 241, 0.3);
+}
+
+
+/* =========================================
+   WORKSPACE
+   ========================================= */
+
+.dashboard-workspace {
+    flex: 1;
+    min-height: 0;
+
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   NOTES PANEL
+   ========================================= */
+
+.notes-panel {
+    min-width: 0;
+    height: calc(100vh - 78px);
+
+    display: flex;
+    flex-direction: column;
+
+    border-right: 1px solid rgba(255, 255, 255, 0.07);
+
+    background:
+        rgba(17, 24, 39, 0.45);
+}
+
+
+.notes-panel-header {
+    padding: 22px 20px 15px;
+}
+
+
+.notes-panel-header h2 {
+    margin: 0;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+
+.notes-panel-header-meta {
+    margin-top: 6px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: #64748B;
+    font-size: 12px;
+}
+
+
+#current-folder-name {
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+#notes-count {
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   NOTES LIST
+   ========================================= */
+
+#notes-list {
+    min-height: 0;
+    flex: 1;
+
+    padding: 8px 12px 20px;
+
+    overflow-y: auto;
+}
+
+
+.note-item {
+    width: 100%;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+
+    padding: 12px;
+
+    margin-bottom: 6px;
+
+    border: 1px solid transparent;
+    border-radius: 11px;
+
+    background: transparent;
+    color: #CBD5E1;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.note-item:hover {
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    border-color:
+        rgba(255, 255, 255, 0.06);
+}
+
+
+.note-item.active {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(99, 102, 241, 0.13),
+            rgba(139, 92, 246, 0.06)
+        );
+
+    border-color:
+        rgba(99, 102, 241, 0.2);
+}
+
+
+.note-item-icon {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 7px;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    font-size: 13px;
+}
+
+
+.note-item-info {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+
+.note-item-title {
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    color: #E2E8F0;
+
+    font-size: 13px;
+    font-weight: 650;
+}
+
+
+.note-item-preview {
+    overflow: hidden;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    color: #64748B;
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+
+.notes-list-empty {
+    padding: 30px 15px;
+
+    color: #475569;
+
+    font-size: 12px;
+    text-align: center;
+}
+
+
+/* =========================================
+   EDITOR AREA
+   ========================================= */
+
+.note-editor {
+    min-width: 0;
+    height: calc(100vh - 78px);
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(99, 102, 241, 0.04),
+            transparent 35%
+        ),
+        #080B14;
+}
+
+
+.note-editor-toolbar {
+    min-height: 58px;
+
+    padding: 0 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+.note-save-status {
+    color: #64748B;
+    font-size: 12px;
+}
+
+
+.note-save-status.saved {
+    color: #34D399;
+}
+
+
+.note-editor-actions {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+
+.note-editor-actions button {
+    min-height: 34px;
+
+    padding: 0 11px;
+
+    border-radius: 8px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    color: #94A3B8;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.note-editor-actions button:hover {
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    color: #F8FAFC;
+}
+
+
+#delete-note-button:hover {
+    color: #F87171;
+
+    border-color:
+        rgba(248, 113, 113, 0.2);
+
+    background:
+        rgba(248, 113, 113, 0.06);
+}
+
+
+/* =========================================
+   EDITOR BODY
+   ========================================= */
+
+#note-editor-body {
+    min-height: 0;
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 38px clamp(25px, 5vw, 75px);
+
+    overflow-y: auto;
+}
+
+
+#note-title {
+    width: 100%;
+
+    margin-bottom: 18px;
+
+    padding: 0;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+    color: #F8FAFC;
+
+    font-size: clamp(26px, 3vw, 38px);
+    font-weight: 750;
+    letter-spacing: -0.035em;
+
+    resize: none;
+}
+
+
+#note-title::placeholder {
+    color: #334155;
+}
+
+
+#note-content {
+    width: 100%;
+    min-height: 350px;
+    flex: 1;
+
+    padding: 0;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+    color: #CBD5E1;
+
+    font-family: inherit;
+
+    font-size: 15px;
+    line-height: 1.9;
+
+    resize: none;
+}
+
+
+#note-content::placeholder {
+    color: #475569;
+}
+
+
+/* =========================================
+   EMPTY EDITOR
+   ========================================= */
+
+#notes-empty {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    text-align: center;
+}
+
+
+.notes-empty-icon {
+    width: 58px;
+    height: 58px;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: 18px;
+
+    border-radius: 17px;
+
+    background:
+        rgba(99, 102, 241, 0.1);
+
+    color: #818CF8;
+
+    font-size: 23px;
+}
+
+
+#notes-empty h3 {
+    margin: 0 0 7px;
+
+    color: #CBD5E1;
+
+    font-size: 17px;
+}
+
+
+#notes-empty p {
+    max-width: 330px;
+
+    margin: 0;
+
+    color: #64748B;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   HIDDEN STATE
+   ========================================= */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================
+   SCROLLBARS
+   ========================================= */
+
+#notes-list::-webkit-scrollbar,
+#note-editor-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+#notes-list::-webkit-scrollbar-track,
+#note-editor-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+#notes-list::-webkit-scrollbar-thumb,
+#note-editor-body::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.16);
+    border-radius: 20px;
+}
+
+
+#notes-list::-webkit-scrollbar-thumb:hover,
+#note-editor-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0.28);
+}

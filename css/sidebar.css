@@ -1,0 +1,279 @@
+/* =========================================
+   OpenNote — Sidebar
+   ========================================= */
+
+.dashboard-sidebar {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* =========================================
+   SIDEBAR TOP GLOW
+   ========================================= */
+
+.dashboard-sidebar::before {
+    content: "";
+
+    position: absolute;
+    top: -120px;
+    left: -100px;
+
+    width: 260px;
+    height: 260px;
+
+    border-radius: 50%;
+
+    background: rgba(99, 102, 241, 0.08);
+
+    filter: blur(70px);
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   BRAND
+   ========================================= */
+
+.sidebar-brand {
+    position: relative;
+    z-index: 1;
+}
+
+
+.sidebar-brand-icon {
+    position: relative;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.sidebar-brand-icon:hover {
+    transform: rotate(-4deg) scale(1.04);
+
+    box-shadow:
+        0 10px 30px rgba(99, 102, 241, 0.32);
+}
+
+
+/* =========================================
+   FOLDER SECTION
+   ========================================= */
+
+.sidebar-section {
+    position: relative;
+    z-index: 1;
+}
+
+
+.sidebar-section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* =========================================
+   FOLDER ITEMS
+   ========================================= */
+
+.sidebar-folder {
+    position: relative;
+    overflow: hidden;
+}
+
+
+.sidebar-folder::before {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+
+    width: 3px;
+
+    border-radius: 0 5px 5px 0;
+
+    background: transparent;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.sidebar-folder.active::before {
+    background:
+        linear-gradient(
+            180deg,
+            #6366F1,
+            #8B5CF6
+        );
+}
+
+
+.sidebar-folder-icon {
+    transition:
+        transform 0.2s ease;
+}
+
+
+.sidebar-folder:hover .sidebar-folder-icon {
+    transform: translateX(2px);
+}
+
+
+.sidebar-folder.active .sidebar-folder-icon {
+    transform: scale(1.05);
+}
+
+
+/* =========================================
+   ADD FOLDER BUTTON
+   ========================================= */
+
+#add-folder-button {
+    position: relative;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+#add-folder-button:hover {
+    transform: translateY(-1px);
+}
+
+
+#add-folder-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   USER AREA
+   ========================================= */
+
+.sidebar-user {
+    position: relative;
+    z-index: 2;
+}
+
+
+.sidebar-user-info {
+    padding: 5px;
+
+    border-radius: 12px;
+
+    transition:
+        background 0.2s ease;
+}
+
+
+.sidebar-user-info:hover {
+    background:
+        rgba(255, 255, 255, 0.025);
+}
+
+
+.sidebar-user-avatar {
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.sidebar-user-info:hover
+.sidebar-user-avatar {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 5px 18px rgba(99, 102, 241, 0.16);
+}
+
+
+/* =========================================
+   LOGOUT
+   ========================================= */
+
+#logout-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+#logout-button:hover {
+    transform: translateY(-1px);
+}
+
+
+#logout-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   FOLDER LIST SCROLL
+   ========================================= */
+
+#sidebar-folder-list {
+    max-height: calc(100vh - 300px);
+
+    overflow-y: auto;
+
+    scrollbar-width: thin;
+    scrollbar-color:
+        rgba(148, 163, 184, 0.15)
+        transparent;
+}
+
+
+#sidebar-folder-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+#sidebar-folder-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+#sidebar-folder-list::-webkit-scrollbar-thumb {
+    background:
+        rgba(148, 163, 184, 0.15);
+
+    border-radius: 10px;
+}
+
+
+#sidebar-folder-list::-webkit-scrollbar-thumb:hover {
+    background:
+        rgba(148, 163, 184, 0.25);
+}
+
+
+/* =========================================
+   FOCUS STATES
+   ========================================= */
+
+.sidebar-folder:focus-visible,
+#add-folder-button:focus-visible,
+#logout-button:focus-visible {
+    outline: 2px solid rgba(99, 102, 241, 0.65);
+    outline-offset: 2px;
+}
