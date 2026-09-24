@@ -2,56 +2,145 @@
    OpenNote — Authentication
    ======================================== */
 
+/* ========================================
+   AUTH PAGE
+   ======================================== */
+
 .auth-page {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+
     position: relative;
     overflow: hidden;
 
-    background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(99, 102, 241, 0.16),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 80% 80%,
-            rgba(139, 92, 246, 0.14),
-            transparent 35%
-        ),
-        var(--bg-primary);
+    background: #05030d;
 }
+
+
+/* ========================================
+   BACKGROUND VIDEO
+   ======================================== */
+
+.auth-background-video {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    /*
+       Keep the exact positioning from
+       the original animation project.
+    */
+    object-position: 70% center;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    background: #05030d;
+}
+
+
+/* ========================================
+   VIDEO OVERLAY
+   ======================================== */
+
+.auth-video-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    /*
+       Very subtle dark gradient.
+       Keeps the lizard/video visible while
+       giving the login panel better contrast.
+    */
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 2, 12, 0.02) 0%,
+            rgba(3, 2, 12, 0.05) 50%,
+            rgba(3, 2, 12, 0.22) 100%
+        );
+}
+
+
+/* ========================================
+   DECORATIVE ORBS
+   ======================================== */
+
+.auth-orb {
+    position: absolute;
+    z-index: 1;
+}
+
+
+/* ========================================
+   LOGIN CONTAINER
+   ======================================== */
 
 .auth-container {
     width: min(92%, 440px);
+
     position: relative;
-    z-index: 2;
+
+    /*
+       Move login panel to the right side.
+    */
+    margin-right: clamp(24px, 6vw, 100px);
+
+    z-index: 3;
 }
+
+
+/* ========================================
+   LOGIN CARD
+   ======================================== */
 
 .auth-card {
     padding: 38px;
+
     border: 1px solid var(--border);
+
     border-radius: var(--radius-xl);
 
     background: var(--glass);
+
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
 
-    box-shadow: var(--shadow);
+    box-shadow:
+        var(--shadow),
+        0 0 50px rgba(99, 102, 241, 0.10);
 
     animation: authCardIn 0.7s ease forwards;
 }
+
+
+/* ========================================
+   BRAND
+   ======================================== */
 
 .auth-brand {
     text-align: center;
     margin-bottom: 30px;
 }
 
+
 .auth-logo {
     width: 58px;
     height: 58px;
+
     margin: 0 auto 16px;
 
     display: flex;
@@ -70,97 +159,135 @@
         0 10px 30px rgba(99, 102, 241, 0.35);
 }
 
+
 .auth-logo span {
     font-size: 25px;
     font-weight: 800;
+
     color: white;
 }
+
 
 .auth-title {
     font-size: 28px;
     font-weight: 750;
+
     letter-spacing: -0.5px;
 }
 
+
 .auth-subtitle {
     margin-top: 8px;
+
     color: var(--text-muted);
+
     font-size: 14px;
 }
 
-/* Auth mode switch */
+
+/* ========================================
+   AUTH MODE SWITCH
+   ======================================== */
 
 .auth-switch {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 4px;
 
     padding: 4px;
+
     margin-bottom: 26px;
 
     border-radius: var(--radius-md);
+
     background: rgba(255, 255, 255, 0.05);
 }
 
+
 .auth-switch button {
     padding: 10px;
+
     border-radius: 10px;
 
     background: transparent;
+
     color: var(--text-muted);
 
     transition: var(--transition-fast);
 }
 
+
 .auth-switch button:hover {
     color: var(--text-primary);
 }
 
+
 .auth-switch button.active {
     color: var(--text-primary);
+
     background: rgba(99, 102, 241, 0.22);
 }
 
-/* Form */
+
+/* ========================================
+   FORM
+   ======================================== */
 
 .auth-form {
     display: flex;
+
     flex-direction: column;
+
     gap: 18px;
 }
 
+
 .input-group {
     display: flex;
+
     flex-direction: column;
+
     gap: 8px;
 }
 
+
 .input-group label {
     font-size: 13px;
+
     font-weight: 600;
+
     color: var(--text-secondary);
 }
+
 
 .input-wrapper {
     position: relative;
 }
 
+
 .input-wrapper input {
     width: 100%;
+
     padding: 13px 15px;
 
     border: 1px solid var(--border);
+
     border-radius: var(--radius-md);
 
     background: rgba(8, 11, 20, 0.55);
+
     color: var(--text-primary);
 
     transition: var(--transition-normal);
 }
 
+
 .input-wrapper input::placeholder {
     color: #64748B;
 }
+
 
 .input-wrapper input:focus {
     border-color: rgba(99, 102, 241, 0.7);
@@ -170,31 +297,44 @@
         0 0 25px rgba(99, 102, 241, 0.08);
 }
 
-/* Password visibility */
+
+/* ========================================
+   PASSWORD VISIBILITY
+   ======================================== */
 
 .password-toggle {
     position: absolute;
+
     right: 12px;
+
     top: 50%;
+
     transform: translateY(-50%);
 
     padding: 5px;
 
     background: transparent;
+
     color: var(--text-muted);
 
     transition: var(--transition-fast);
 }
 
+
 .password-toggle:hover {
     color: var(--text-primary);
 }
 
-/* Submit */
+
+/* ========================================
+   SUBMIT
+   ======================================== */
 
 .auth-submit {
     width: 100%;
+
     padding: 13px 18px;
+
     margin-top: 4px;
 
     border-radius: var(--radius-md);
@@ -206,6 +346,7 @@
     );
 
     color: white;
+
     font-weight: 650;
 
     box-shadow:
@@ -217,6 +358,7 @@
         opacity var(--transition-fast);
 }
 
+
 .auth-submit:hover {
     transform: translateY(-2px);
 
@@ -224,67 +366,122 @@
         0 14px 32px rgba(99, 102, 241, 0.3);
 }
 
+
 .auth-submit:active {
     transform: translateY(0);
 }
 
+
 .auth-submit:disabled {
     opacity: 0.65;
+
     cursor: not-allowed;
+
     transform: none;
 }
 
-/* Messages */
+
+/* ========================================
+   MESSAGES
+   ======================================== */
 
 .auth-message {
     min-height: 18px;
+
     margin-top: -5px;
 
     font-size: 13px;
+
     text-align: center;
 }
+
 
 .auth-message.error {
     color: var(--error);
 }
 
+
 .auth-message.success {
     color: var(--success);
 }
 
-/* Footer */
+
+/* ========================================
+   FOOTER
+   ======================================== */
 
 .auth-footer {
     margin-top: 24px;
 
     text-align: center;
+
     font-size: 12px;
+
     color: var(--text-muted);
 }
 
-/* Responsive */
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 900px) {
+
+    .auth-page {
+        justify-content: center;
+    }
+
+    .auth-container {
+        margin-right: 0;
+
+        width: min(92%, 440px);
+    }
+
+    .auth-video-overlay {
+        background:
+            rgba(3, 2, 12, 0.28);
+    }
+}
+
 
 @media (max-width: 480px) {
+
     .auth-card {
         padding: 28px 22px;
+
         border-radius: var(--radius-lg);
     }
 
     .auth-title {
         font-size: 24px;
     }
+
+    .auth-background-video {
+        object-position: 70% center;
+    }
 }
 
-/* Animation */
+
+/* ========================================
+   AUTH CARD ANIMATION
+   ======================================== */
 
 @keyframes authCardIn {
+
     from {
         opacity: 0;
-        transform: translateY(20px) scale(0.97);
+
+        transform:
+            translateY(20px)
+            scale(0.97);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+
+        transform:
+            translateY(0)
+            scale(1);
     }
+
 }

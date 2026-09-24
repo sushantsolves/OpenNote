@@ -1,490 +1,521 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>OpenNote — Your Notes, Your Space</title>
 
     <meta
-        name="description"
-        content="OpenNote — a simple, modern and private space for your notes."
-    >
+      name="description"
+      content="OpenNote — a simple, modern and private space for your notes."
+    />
 
-    <link rel="stylesheet" href="./css/global.css">
-    <link rel="stylesheet" href="./css/auth.css">
-    <link rel="stylesheet" href="./css/animations.css">
-    <link rel="stylesheet" href="./css/dashboard.css">
-    <link rel="stylesheet" href="./css/sidebar.css">
-    <link rel="stylesheet" href="./css/notes.css">
-    <link rel="stylesheet" href="./css/components.css">
-    <link rel="stylesheet" href="./css/dashboard-responsive.css"></head>
+    <link rel="stylesheet" href="./css/global.css" />
+    <link rel="stylesheet" href="./css/auth.css" />
+    <link rel="stylesheet" href="./css/animations.css" />
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <link rel="stylesheet" href="./css/sidebar.css" />
+    <link rel="stylesheet" href="./css/notes.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+    <link rel="stylesheet" href="./css/dashboard-responsive.css" />
+  </head>
 
-<body>
-
+  <body>
     <!-- =========================
          AUTHENTICATION PAGE
     ========================== -->
 
     <main id="auth-page" class="auth-page">
 
-        <div class="auth-orb auth-orb-primary"></div>
-        <div class="auth-orb auth-orb-secondary"></div>
-        <div class="auth-orb auth-orb-accent"></div>
+      <!-- Background animation -->
+      <video
+        id="auth-background-video"
+        class="auth-background-video"
+        src="./public/hero-video.mp4"
+        muted
+        playsinline
+        preload="auto"
+        aria-hidden="true"
+      ></video>
 
-        <section class="auth-container">
+      <!-- Dark overlay for login readability -->
+      <div class="auth-video-overlay"></div>
 
-            <div class="auth-card">
+      <!-- Existing decorative elements -->
+      <div class="auth-orb auth-orb-primary"></div>
+      <div class="auth-orb auth-orb-secondary"></div>
+      <div class="auth-orb auth-orb-accent"></div>
 
-                <div class="auth-brand">
+      <!-- LOGIN CARD -->
+      <section class="auth-container">
+        <div class="auth-card">
 
-                    <div class="auth-logo">
-                        <span>O</span>
-                    </div>
-
-                    <h1 class="auth-title">
-                        OpenNote
-                    </h1>
-
-                    <p class="auth-subtitle">
-                        Your notes. Your space. Your ideas.
-                    </p>
-
-                </div>
-
-                <div class="auth-switch">
-
-                    <button
-                        type="button"
-                        id="sign-in-tab"
-                        class="active"
-                    >
-                        Sign In
-                    </button>
-
-                    <button
-                        type="button"
-                        id="sign-up-tab"
-                    >
-                        Sign Up
-                    </button>
-
-                </div>
-
-                <form
-                    id="auth-form"
-                    class="auth-form"
-                >
-
-                    <div class="input-group">
-
-                        <label for="email">
-                            Email
-                        </label>
-
-                        <div class="input-wrapper">
-
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                placeholder="you@example.com"
-                                autocomplete="email"
-                                required
-                            >
-
-                        </div>
-
-                    </div>
-
-                    <div class="input-group">
-
-                        <label for="password">
-                            Password
-                        </label>
-
-                        <div class="input-wrapper">
-
-                            <input
-                                type="password"
-                                id="password"
-                                name="password"
-                                placeholder="Enter your password"
-                                autocomplete="current-password"
-                                required
-                            >
-
-                            <button
-                                type="button"
-                                id="password-toggle"
-                                class="password-toggle"
-                                aria-label="Show password"
-                            >
-                                👁
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                    <div
-                        id="auth-message"
-                        class="auth-message"
-                        aria-live="polite"
-                    ></div>
-
-                    <button
-                        type="submit"
-                        id="auth-submit"
-                        class="auth-submit"
-                    >
-                        Sign In
-                    </button>
-
-                </form>
-
-                <div class="auth-footer">
-
-                    <p>
-                        Built with simplicity &amp; focus.
-                    </p>
-
-                </div>
-
+          <div class="auth-brand">
+            <div class="auth-logo">
+                <span>ON</span>
+              <!-- <img src="public/logo.png" alt="ON"> -->
             </div>
 
-        </section>
+            <h1 class="auth-title">OpenNote</h1>
 
+            <p class="auth-subtitle">
+              Your notes. Your space. Your ideas.
+            </p>
+          </div>
+
+          <div class="auth-switch">
+            <button type="button" id="sign-in-tab" class="active">
+              Sign In
+            </button>
+
+            <button type="button" id="sign-up-tab">
+              Sign Up
+            </button>
+          </div>
+
+          <form id="auth-form" class="auth-form">
+
+            <div class="input-group">
+              <label for="email">Email</label>
+
+              <div class="input-wrapper">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="password">Password</label>
+
+              <div class="input-wrapper">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Enter your password"
+                  autocomplete="current-password"
+                  required
+                />
+
+                <button
+                  type="button"
+                  id="password-toggle"
+                  class="password-toggle"
+                  aria-label="Show password"
+                >
+                  👁
+                </button>
+              </div>
+            </div>
+
+            <div
+              id="auth-message"
+              class="auth-message"
+              aria-live="polite"
+            ></div>
+
+            <button
+              type="submit"
+              id="auth-submit"
+              class="auth-submit"
+            >
+              Sign In
+            </button>
+
+          </form>
+
+          <div class="auth-footer">
+            <p>Built with simplicity &amp; focus.</p>
+          </div>
+
+        </div>
+      </section>
     </main>
-
 
     <!-- =========================
          DASHBOARD
     ========================== -->
 
-    <main
-        id="dashboard"
-        class="dashboard hidden"
-    >
+    <main id="dashboard" class="dashboard hidden">
 
-        <!-- Sidebar -->
+      <!-- Sidebar -->
 
-        <aside class="dashboard-sidebar">
+      <aside class="dashboard-sidebar">
 
-            <div class="dashboard-brand">
+        <div class="dashboard-brand">
+          <div class="dashboard-logo">O</div>
 
-                <div class="dashboard-logo">
-                    O
-                </div>
+          <span class="dashboard-brand-name">
+            OpenNote
+          </span>
+        </div>
 
-                <span class="dashboard-brand-name">
-                    OpenNote
+        <div class="sidebar-scroll">
+
+          <p class="sidebar-section-title">
+            Workspace
+          </p>
+
+          <nav class="sidebar-nav">
+
+            <button
+              type="button"
+              class="sidebar-item active"
+              id="all-notes-button"
+            >
+              <span class="sidebar-icon">📝</span>
+              <span>All Notes</span>
+            </button>
+
+            <button
+              type="button"
+              class="sidebar-item"
+              id="favorites-button"
+            >
+              <span class="sidebar-icon">★</span>
+              <span>Favorites</span>
+            </button>
+
+          </nav>
+
+          <div class="sidebar-divider"></div>
+
+          <p class="sidebar-section-title">
+            Folders
+          </p>
+
+          <div
+            id="sidebar-folder-list"
+            class="sidebar-folder-list"
+          >
+            <!-- Folders will be rendered here -->
+          </div>
+
+          <button
+            type="button"
+            id="add-folder-button"
+            class="sidebar-add-folder"
+          >
+            <span>+</span>
+            <span>New Folder</span>
+          </button>
+
+        </div>
+
+        <!-- User -->
+
+        <div class="sidebar-user">
+
+          <div class="user-card">
+
+            <div id="user-avatar" class="user-avatar">
+              U
+            </div>
+
+            <div class="user-info">
+
+              <div
+                id="user-email"
+                class="user-email"
+              >
+                user@example.com
+              </div>
+
+            </div>
+
+            <button
+              type="button"
+              id="logout-button"
+              class="editor-button"
+              title="Sign out"
+            >
+              ↪
+            </button>
+
+          </div>
+
+        </div>
+
+      </aside>
+
+      <!-- Main Workspace -->
+
+      <section class="dashboard-main">
+
+        <header class="dashboard-header">
+
+          <div class="dashboard-heading">
+
+            <h1 id="dashboard-title">
+              My Notes
+            </h1>
+
+            <p id="dashboard-subtitle">
+              Capture your thoughts and ideas.
+            </p>
+
+          </div>
+
+          <div class="dashboard-actions">
+
+            <button
+              type="button"
+              id="new-folder-button"
+              class="dashboard-button"
+            >
+              + Folder
+            </button>
+
+            <button
+              type="button"
+              id="new-note-button"
+              class="dashboard-button primary"
+            >
+              + New Note
+            </button>
+
+          </div>
+
+        </header>
+
+        <div class="dashboard-content">
+
+          <div class="dashboard-toolbar">
+
+            <div
+              id="current-folder-name"
+              class="dashboard-toolbar-title"
+            >
+              Notes
+            </div>
+
+          </div>
+
+          <div class="notes-layout">
+
+            <!-- Notes List -->
+
+            <section class="notes-panel">
+
+              <div class="notes-panel-header">
+
+                <span class="notes-panel-title">
+                  Notes
                 </span>
 
-            </div>
-
-
-            <div class="sidebar-scroll">
-
-                <p class="sidebar-section-title">
-                    Workspace
-                </p>
-
-                <nav class="sidebar-nav">
-
-                    <button
-                        type="button"
-                        class="sidebar-item active"
-                        id="all-notes-button"
-                    >
-                        <span class="sidebar-icon">
-                            📝
-                        </span>
-
-                        <span>
-                            All Notes
-                        </span>
-                    </button>
-
-                    <button
-                        type="button"
-                        class="sidebar-item"
-                        id="favorites-button"
-                    >
-                        <span class="sidebar-icon">
-                            ★
-                        </span>
-
-                        <span>
-                            Favorites
-                        </span>
-                    </button>
-
-                </nav>
-
-
-                <div class="sidebar-divider"></div>
-
-
-                <p class="sidebar-section-title">
-                    Folders
-                </p>
-
-                <div
-                    id="sidebar-folder-list"
-                    class="sidebar-folder-list"
+                <span
+                  id="notes-count"
+                  class="note-save-status"
                 >
-                    <!-- Folders will be rendered here -->
-                </div>
+                  0 notes
+                </span>
 
-                <button
+              </div>
+
+              <div
+                id="notes-list"
+                class="notes-list"
+              >
+                <!-- Notes rendered here -->
+              </div>
+
+            </section>
+
+            <!-- Note Editor -->
+
+            <section class="note-editor">
+
+              <div class="note-editor-toolbar">
+
+                <span
+                  id="note-save-status"
+                  class="note-save-status"
+                >
+                  Ready
+                </span>
+
+                <div class="editor-actions">
+
+                  <button
                     type="button"
-                    id="add-folder-button"
-                    class="sidebar-add-folder"
-                >
-                    <span>
-                        +
-                    </span>
+                    id="save-note-button"
+                    class="editor-button"
+                    title="Save note"
+                  >
+                    ✓
+                  </button>
 
-                    <span>
-                        New Folder
-                    </span>
-                </button>
-
-            </div>
-
-
-            <!-- User -->
-
-            <div class="sidebar-user">
-
-                <div class="user-card">
-
-                    <div
-                        id="user-avatar"
-                        class="user-avatar"
-                    >
-                        U
-                    </div>
-
-                    <div class="user-info">
-
-                        <div
-                            id="user-email"
-                            class="user-email"
-                        >
-                            user@example.com
-                        </div>
-
-                    </div>
-
-                    <button
-                        type="button"
-                        id="logout-button"
-                        class="editor-button"
-                        title="Sign out"
-                    >
-                        ↪
-                    </button>
+                  <button
+                    type="button"
+                    id="delete-note-button"
+                    class="editor-button danger"
+                    title="Delete note"
+                  >
+                    🗑
+                  </button>
 
                 </div>
 
-            </div>
+              </div>
 
-        </aside>
+              <div
+                id="note-editor-body"
+                class="note-editor-body"
+              >
 
+                <input
+                  type="text"
+                  id="note-title"
+                  class="note-title-input"
+                  placeholder="Untitled Note"
+                  maxlength="120"
+                />
 
-        <!-- Main Workspace -->
+                <textarea
+                  id="note-content"
+                  class="note-content-input"
+                  placeholder="Start writing your thoughts..."
+                ></textarea>
 
-        <section class="dashboard-main">
+              </div>
 
-            <header class="dashboard-header">
+              <!-- Empty Editor State -->
 
-                <div class="dashboard-heading">
+              <div
+                id="notes-empty"
+                class="notes-empty hidden"
+              >
 
-                    <h1 id="dashboard-title">
-                        My Notes
-                    </h1>
+                <div class="notes-empty-content">
 
-                    <p id="dashboard-subtitle">
-                        Capture your thoughts and ideas.
-                    </p>
+                  <div class="notes-empty-icon">
+                    📝
+                  </div>
 
-                </div>
+                  <h3>
+                    No note selected
+                  </h3>
 
-                <div class="dashboard-actions">
-
-                    <button
-                        type="button"
-                        id="new-folder-button"
-                        class="dashboard-button"
-                    >
-                        + Folder
-                    </button>
-
-                    <button
-                        type="button"
-                        id="new-note-button"
-                        class="dashboard-button primary"
-                    >
-                        + New Note
-                    </button>
-
-                </div>
-
-            </header>
-
-
-            <div class="dashboard-content">
-
-                <div class="dashboard-toolbar">
-
-                    <div
-                        id="current-folder-name"
-                        class="dashboard-toolbar-title"
-                    >
-                        Notes
-                    </div>
+                  <p>
+                    Select a note from the list or create a new one to start
+                    writing.
+                  </p>
 
                 </div>
 
+              </div>
 
-                <div class="notes-layout">
+            </section>
 
-                    <!-- Notes List -->
+          </div>
 
-                    <section class="notes-panel">
+        </div>
 
-                        <div class="notes-panel-header">
-
-                            <span class="notes-panel-title">
-                                Notes
-                            </span>
-
-                            <span
-                                id="notes-count"
-                                class="note-save-status"
-                            >
-                                0 notes
-                            </span>
-
-                        </div>
-
-                        <div
-                            id="notes-list"
-                            class="notes-list"
-                        >
-                            <!-- Notes rendered here -->
-                        </div>
-
-                    </section>
-
-
-                    <!-- Note Editor -->
-
-                    <section class="note-editor">
-
-                        <div class="note-editor-toolbar">
-
-                            <span
-                                id="note-save-status"
-                                class="note-save-status"
-                            >
-                                Ready
-                            </span>
-
-                            <div class="editor-actions">
-
-                                <button
-                                    type="button"
-                                    id="save-note-button"
-                                    class="editor-button"
-                                    title="Save note"
-                                >
-                                    ✓
-                                </button>
-
-                                <button
-                                    type="button"
-                                    id="delete-note-button"
-                                    class="editor-button danger"
-                                    title="Delete note"
-                                >
-                                    🗑
-                                </button>
-
-                            </div>
-
-                        </div>
-
-
-                        <div
-                            id="note-editor-body"
-                            class="note-editor-body"
-                        >
-
-                            <input
-                                type="text"
-                                id="note-title"
-                                class="note-title-input"
-                                placeholder="Untitled Note"
-                                maxlength="120"
-                            >
-
-                            <textarea
-                                id="note-content"
-                                class="note-content-input"
-                                placeholder="Start writing your thoughts..."
-                            ></textarea>
-
-                        </div>
-
-
-                        <!-- Empty Editor State -->
-
-                        <div
-                            id="notes-empty"
-                            class="notes-empty hidden"
-                        >
-
-                            <div class="notes-empty-content">
-
-                                <div class="notes-empty-icon">
-                                    📝
-                                </div>
-
-                                <h3>
-                                    No note selected
-                                </h3>
-
-                                <p>
-                                    Select a note from the list or create
-                                    a new one to start writing.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </section>
-
-                </div>
-
-            </div>
-
-        </section>
+      </section>
 
     </main>
 
+    <!-- =========================
+         VIDEO CURSOR SCRUB
+    ========================== -->
+
+    <script>
+      (() => {
+        const video = document.getElementById("auth-background-video");
+
+        if (!video) return;
+
+        const SENSITIVITY = 0.8;
+
+        let previousX = null;
+        let targetTime = 0;
+        let isSeeking = false;
+
+        video.addEventListener("loadedmetadata", () => {
+          targetTime = video.currentTime;
+        });
+
+        window.addEventListener("mousemove", (event) => {
+
+          // Only react while the authentication screen is visible
+          const authPage = document.getElementById("auth-page");
+
+          if (!authPage || authPage.classList.contains("hidden")) {
+            return;
+          }
+
+          if (
+            !video.duration ||
+            Number.isNaN(video.duration)
+          ) {
+            return;
+          }
+
+          const currentX = event.clientX;
+
+          if (previousX === null) {
+            previousX = currentX;
+            return;
+          }
+
+          const delta = currentX - previousX;
+
+          previousX = currentX;
+
+          const timeOffset =
+            (delta / window.innerWidth) *
+            SENSITIVITY *
+            video.duration;
+
+          const nextTarget = Math.min(
+            Math.max(
+              targetTime + timeOffset,
+              0
+            ),
+            video.duration
+          );
+
+          targetTime = nextTarget;
+
+          if (!isSeeking) {
+            isSeeking = true;
+            video.currentTime = targetTime;
+          }
+        });
+
+        video.addEventListener("seeked", () => {
+
+          if (
+            Math.abs(
+              video.currentTime - targetTime
+            ) > 0.01
+          ) {
+            video.currentTime = targetTime;
+          } else {
+            isSeeking = false;
+          }
+
+        });
+
+        // Reset mouse tracking when the pointer leaves the window
+        document.addEventListener("mouseleave", () => {
+          previousX = null;
+        });
+      })();
+    </script>
 
     <!-- Application -->
-
     <script
-        type="module"
-        src="./js/app.js"
+      type="module"
+      src="./js/app.js"
     ></script>
 
-</body>
-
+  </body>
 </html>
