@@ -19,6 +19,9 @@
 }
 
 
+
+
+
 /* ========================================
    BACKGROUND VIDEO
    ======================================== */
@@ -138,8 +141,8 @@
 
 
 .auth-logo {
-    width: 58px;
-    height: 58px;
+    width: 100px;
+    height: 100px;
 
     margin: 0 auto 16px;
 
@@ -157,6 +160,12 @@
 
     box-shadow:
         0 10px 30px rgba(99, 102, 241, 0.35);
+}
+
+.OpenNoteLogo{
+    height: 100px;
+
+    object-fit: contain;
 }
 
 
